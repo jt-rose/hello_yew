@@ -30,7 +30,7 @@ fn App() -> Html {
         <div>
             // <button {onclick}>{ "+1" }</button>
             // <p>{ *counter }</p>
-            <h3>{ *name }</h3>
+            <h3 class={classes!("bg-red-100")}>{ *name }</h3>
             <button {onclick}> { "toggle name" } </button>
         </div>
     }
