@@ -1,4 +1,5 @@
 use yew::prelude::*;
+mod components;
 
 #[function_component]
 fn App() -> Html {
@@ -26,12 +27,24 @@ fn App() -> Html {
         }
     };
 
+    let titles = vec!["Winter Castle".to_string(), "Summer Grove".to_string(), "Autumn Cabin".to_string()];
+
     html! {
         <div>
+            <components::header::Header />
             // <button {onclick}>{ "+1" }</button>
             // <p>{ *counter }</p>
-            <h3 class={classes!("bg-red-100")}>{ *name }</h3>
-            <button {onclick}> { "toggle name" } </button>
+            <h2 class="bg-blue-100 text-center">{ *name }</h2>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-center" {onclick}> { "toggle name" } </button>
+            <div class="flex flex-col justify-center">
+            {titles.into_iter().map(|t| { html! { <components::card::Card title={t}/> }}).collect::<Html>()}
+            </div>
+
+
+// 
+
+
+
         </div>
     }
 }
